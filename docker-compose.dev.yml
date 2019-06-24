@@ -9,7 +9,7 @@ services:
         - TZ=${TZ}
     env_file:
       - .env
-    links:
+    depends_on:
       - db
       - solr
       - redis
@@ -41,6 +41,8 @@ services:
     container_name: solr
     build:
       context: solr/
+    ports:
+      - "8983:8983"
     volumes:
       - solr_data:/opt/solr/server/solr/ckan/data/index
 
