@@ -33,7 +33,7 @@ services:
     env_file:
       - .env
     build:
-      context: postgresql/
+      context: ${DB_IMAGE}/
     volumes:
       - pg_data:/var/lib/postgresql/data
 
