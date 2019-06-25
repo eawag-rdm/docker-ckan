@@ -17,6 +17,10 @@ RUN echo $TZ > /etc/timezone
 RUN pip install -e git+https://github.com/ckan/ckanext-spatial.git#egg=ckanext-spatial && \
     pip install -r https://raw.githubusercontent.com/ckan/ckanext-spatial/master/pip-requirements.txt
 
+# Use my own patched version until they got it sorted out in the original repo
+# RUN pip install -e git+https://github.com/ckan/ckanext-pdfview.git#egg=ckanext-pdfview
+RUN pip install -e git+https://github.com/eawag-rdm/ckanext-pdfview.git#egg=ckanext-pdfview
+
 # Clone the extension(s) your are writing for your own project in the `src` folder
 # to get them mounted in this image at runtime
 
