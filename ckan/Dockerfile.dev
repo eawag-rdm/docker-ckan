@@ -14,6 +14,9 @@ RUN echo $TZ > /etc/timezone
 #    pip install -e git+https://github.com/ckan/ckanext-dcat.git@v0.0.6#egg=ckanext-dcat && \
 #    pip install -r https://raw.githubusercontent.com/ckan/ckanext-dcat/v0.0.6/requirements.txt
 
+RUN pip install -e git+https://github.com/ckan/ckanext-spatial.git#egg=ckanext-spatial && \
+    pip install -r https://raw.githubusercontent.com/ckan/ckanext-spatial/master/pip-requirements.txt
+
 # Clone the extension(s) your are writing for your own project in the `src` folder
 # to get them mounted in this image at runtime
 
