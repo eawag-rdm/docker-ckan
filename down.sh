@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ex
+set -e
 docker-compose -f docker-compose.dev.yml down && \
 
 if [[ "$1" == "dv" ]]; then
