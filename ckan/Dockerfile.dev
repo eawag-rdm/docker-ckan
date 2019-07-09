@@ -1,6 +1,6 @@
 FROM openknowledge/ckan-dev:2.8
 
-MAINTAINER Your Name Here <you@example.com>
+MAINTAINER Harald von Waldow <harald.vonwaldow@eawag.ch>
 
 # Set timezone
 ARG TZ
