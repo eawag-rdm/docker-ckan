@@ -16,6 +16,8 @@ RUN echo $TZ > /etc/timezone
 
 RUN pip install -e git+https://github.com/ckan/ckanext-spatial.git#egg=ckanext-spatial && \
     pip install -r https://raw.githubusercontent.com/ckan/ckanext-spatial/master/pip-requirements.txt
+RUN pip install -e git+https://github.com/ckan/ckanext-scheming.git#egg=ckanext-scheming && \
+    pip install -r https://raw.githubusercontent.com/ckan/ckanext-scheming/master/requirements.txt
 
 # Use my own patched version until they got it sorted out in the original repo
 # RUN pip install -e git+https://github.com/ckan/ckanext-pdfview.git#egg=ckanext-pdfview
