@@ -83,6 +83,8 @@ schema. In this case the version should be set to the next CKAN version number.
             <filter class="solr.LowerCaseFilterFactory"/>
         </analyzer>
     </fieldType>
+    <!-- Field type for date ranges - HvW-2015/10/30 -->
+    <fieldType name="daterange" class="solr.DateRangeField" />
 </types>
 
 
@@ -112,6 +114,17 @@ schema. In this case the version should be set to the next CKAN version number.
     <field name="tags" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="groups" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="organization" type="string" indexed="true" stored="true" multiValued="false"/>
+    <!-- Eawag custom fields -->
+    <field name="ispublication" type="boolean" indexed="true" stored="true" multiValued="false"/>
+    <field name="embargo" type="date" indexed="true" stored="true" multiValued="false"/>
+    <field name="variables" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="generic-terms" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="systems" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="taxa" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="substances" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="timerange" type="daterange" indexed="true" stored="true" multiValued="true"/>
+    <field name="geographic_name" type="string" indexed="true" stored="true" multiValued="true"/>
+    <!-- HvW - 2015-11-10 -->
 
     <field name="capacity" type="string" indexed="true" stored="true" multiValued="false"/>
     <field name="permission_labels" type="string" indexed="true" stored="false" multiValued="true"/>
@@ -163,6 +176,7 @@ schema. In this case the version should be set to the next CKAN version number.
 </fields>
 
 <uniqueKey>index_id</uniqueKey>
+<!-- Now set in solrconfig.xml -->
 <!-- <defaultSearchField>text</defaultSearchField> -->
 <!-- <solrQueryParser defaultOperator="AND"/> -->
 
