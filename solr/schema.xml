@@ -67,7 +67,6 @@ schema. In this case the version should be set to the next CKAN version number.
         </analyzer>
     </fieldType>
 
-
     <!-- A general unstemmed text field - good if one does not know the language of the field -->
     <fieldType name="textgen" class="solr.TextField" positionIncrementGap="100">
         <analyzer type="index">
@@ -83,10 +82,20 @@ schema. In this case the version should be set to the next CKAN version number.
             <filter class="solr.LowerCaseFilterFactory"/>
         </analyzer>
     </fieldType>
+    
     <!-- Field type for date ranges - HvW-2015/10/30 -->
     <fieldType name="daterange" class="solr.DateRangeField" />
-</types>
 
+    <!-- Field Type for using ckanext-spatial solr-spatial-field backend -->
+    <fieldType name="location_rpt" class="solr.SpatialRecursivePrefixTreeFieldType"
+               spatialContextFactory="JTS"
+	       format="WKT"
+               autoIndex="true"
+               distErrPct="0.05"
+               maxDistErr="0.0001"
+               distanceUnits="degrees" />
+    
+</types>
 
 <fields>
     <field name="index_id" type="string" indexed="true" stored="true" required="true" />
@@ -125,6 +134,8 @@ schema. In this case the version should be set to the next CKAN version number.
     <field name="timerange" type="daterange" indexed="true" stored="true" multiValued="true"/>
     <field name="geographic_name" type="string" indexed="true" stored="true" multiValued="true"/>
     <!-- HvW - 2015-11-10 -->
+    <!-- field for spaial geometry -->
+    <field name="spatial_geom"  type="location_rpt" indexed="true" stored="true" multiValued="true" />
 
     <field name="capacity" type="string" indexed="true" stored="true" multiValued="false"/>
     <field name="permission_labels" type="string" indexed="true" stored="false" multiValued="true"/>
