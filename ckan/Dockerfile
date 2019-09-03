@@ -17,6 +17,9 @@ RUN cp /usr/share/zoneinfo/$TZ /etc/localtime
 # Install the extension(s) you wrote for your own project
 # RUN pip install -e git+https://github.com/your-org/ckanext-your-extension.git@v1.0.0#egg=ckanext-your-extension
 
+# Copy additional setup scripts
+COPY docker-entrypoint.d/* /docker-entrypoint.d/
+
 # Apply any patches needed to CKAN core or any of the built extensions (not the
 # runtime mounted ones)
 # See https://github.com/okfn/docker-ckan#applying-patches
