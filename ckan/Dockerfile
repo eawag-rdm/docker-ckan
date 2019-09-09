@@ -1,21 +1,28 @@
 FROM openknowledge/ckan-base:2.8
 
-MAINTAINER Your Name Here <you@example.com>
+MAINTAINER Harald von Waldow <harald.vonwaldow@eawag.ch>
 
 # Set timezone
 ARG TZ
-RUN echo $TZ > /etc/timezone
 RUN cp /usr/share/zoneinfo/$TZ /etc/localtime
+RUN echo $TZ > /etc/timezone
 
 # Install any extensions needed by your CKAN instance
 # (Make sure to add the plugins to CKAN__PLUGINS in the .env file)
-# For instance:
-#RUN pip install -e git+https://github.com/ckan/ckanext-pages.git#egg=ckanext-pages && \
-#    pip install -e git+https://github.com/ckan/ckanext-dcat.git@v0.0.6#egg=ckanext-dcat && \
-#    pip install -r https://raw.githubusercontent.com/ckan/ckanext-dcat/v0.0.6/requirements.txt
+RUN pip install -e git+https://github.com/ckan/ckanext-scheming.git#egg=ckanext-scheming && \
+    pip install -r https://raw.githubusercontent.com/ckan/ckanext-scheming/master/requirements.txt
 
 # Install the extension(s) you wrote for your own project
-# RUN pip install -e git+https://github.com/your-org/ckanext-your-extension.git@v1.0.0#egg=ckanext-your-extension
+# Use my own patched version until they got it sorted out in the original repo
+RUN pip install -e git+https://github.com/eawag-rdm/ckanext-pdfview.git#egg=ckanext-pdfview
+RUN pip install -e git+https://github.com/eawag-rdm/ckanext-spatial.git#egg=ckanext-spatial && \
+    pip install -r https://raw.githubusercontent.com/eawag-rdm/ckanext-spatial/master/pip-requirements.txt
+
+RUN pip install -e git+https://github.com/eawag-rdm/ckanext_eaw_schema.git@ericopen#egg=ckanext_eaw_schema
+RUN pip install -e git+https://github.com/eawag-rdm/ckanext-eaw_theme.git#egg=ckanext-eaw_theme
+RUN pip install -e git+https://github.com/eawag-rdm/ckanext-hierarchy_s.git#egg=ckanext-hierarchy_s && \
+    pip install -r git+https://raw.githubusercontent.com/eawag-rdm/ckanext-hierarchy_s/master/requirements.txt
+RUN pip install -e git+https://github.com/eawag-rdm/ckanext-repeating_s.git#egg=ckanext-repeating_s
 
 # Copy additional setup scripts
 COPY docker-entrypoint.d/* /docker-entrypoint.d/
