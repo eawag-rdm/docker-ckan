@@ -21,7 +21,7 @@ RUN pip install -e git+https://github.com/eawag-rdm/ckanext-spatial.git#egg=ckan
 RUN pip install -e git+https://github.com/eawag-rdm/ckanext_eaw_schema.git@ericopen#egg=ckanext_eaw_schema
 RUN pip install -e git+https://github.com/eawag-rdm/ckanext-eaw_theme.git#egg=ckanext-eaw_theme
 RUN pip install -e git+https://github.com/eawag-rdm/ckanext-hierarchy_s.git#egg=ckanext-hierarchy_s && \
-    pip install -r git+https://raw.githubusercontent.com/eawag-rdm/ckanext-hierarchy_s/master/requirements.txt
+    pip install -r https://raw.githubusercontent.com/eawag-rdm/ckanext-hierarchy_s/master/requirements.txt
 RUN pip install -e git+https://github.com/eawag-rdm/ckanext-repeating_s.git#egg=ckanext-repeating_s
 
 # Copy additional setup scripts
