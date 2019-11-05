@@ -9,7 +9,7 @@ services:
       args:
         - TZ=${TZ}
     env_file:
-      - .env
+      - .env.local
     depends_on:
       - db-dev
       - solr-dev
@@ -32,7 +32,7 @@ services:
   db-dev:
     container_name: db
     env_file:
-      - .env
+      - .env.local
     build:
       context: postgresql/
       args:
