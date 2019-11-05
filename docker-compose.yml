@@ -52,5 +52,14 @@ services:
     container_name: redis
     image: redis:alpine
 
+  nginx:
+    container_name: nginx
+    build:
+      context: nginx/
+    ports:
+      - "80:80"
+    volumes:
+      - /data/www:/data/www
+
 volumes:
   pg_data:
