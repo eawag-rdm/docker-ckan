@@ -124,6 +124,7 @@ schema. In this case the version should be set to the next CKAN version number.
     <field name="groups" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="organization" type="string" indexed="true" stored="true" multiValued="false"/>
     <!-- Eawag custom fields -->
+    <field name="id_internal" type="string" indexed="true" stored="true" multiValued="false" />
     <field name="ispublication" type="boolean" indexed="true" stored="true" multiValued="false"/>
     <field name="embargo" type="date" indexed="true" stored="true" multiValued="false"/>
     <field name="variables" type="string" indexed="true" stored="true" multiValued="true"/>
