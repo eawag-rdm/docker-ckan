@@ -133,6 +133,12 @@ schema. In this case the version should be set to the next CKAN version number.
     <field name="substances" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="timerange" type="daterange" indexed="true" stored="true" multiValued="true"/>
     <field name="geographic_name" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="publicationlink" type="string" indexed="true" stored="true" multiValued="false"/>
+    <field name="publicationlink_dora" type="string" indexed="true" stored="true" multiValued="false"/>
+    <field name="publicationlink_url" type="string" indexed="true" stored="true" multiValued="false"/>
+    <field name="paper_doi" type="string" indexed="true" stored="true" multiValued="false"/>
+    <field name="citation_publication" type="string" indexed="true" stored="true" multiValued="false"/>
+    <field name="doi" type="string" indexed="true" stored="true" multiValued="false"/>
     <!-- HvW - 2015-11-10 -->
     <!-- field for spaial geometry -->
     <field name="spatial_geom"  type="location_rpt" indexed="true" stored="true" multiValued="true" />
