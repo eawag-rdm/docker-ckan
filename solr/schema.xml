@@ -165,6 +165,8 @@ schema. In this case the version should be set to the next CKAN version number.
     <field name="linked_from" type="text" indexed="true" stored="false" multiValued="true"/>
     <field name="child_of" type="text" indexed="true" stored="false" multiValued="true"/>
     <field name="parent_of" type="text" indexed="true" stored="false" multiValued="true"/>
+    <field name="has_part" type="text" indexed="true" stored="false" multiValued="true"/>
+    <field name="is_part_of" type="text" indexed="true" stored="false" multiValued="true"/>
     <field name="views_total" type="int" indexed="true" stored="false"/>
     <field name="views_recent" type="int" indexed="true" stored="false"/>
     <field name="resources_accessed_total" type="int" indexed="true" stored="false"/>
