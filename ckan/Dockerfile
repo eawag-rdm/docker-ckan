@@ -15,12 +15,12 @@ RUN pip install -e git+https://github.com/ckan/ckanext-scheming.git#egg=ckanext-
 # Install the extension(s) you wrote for your own project
 # Use my own patched version until they got it sorted out in the original repo
 RUN pip install -e git+https://github.com/eawag-rdm/ckanext-pdfview.git#egg=ckanext-pdfview
-RUN pip install -e git+https://github.com/eawag-rdm/ckanext-spatial.git#egg=ckanext-spatial && \
-    pip install -r https://raw.githubusercontent.com/eawag-rdm/ckanext-spatial/master/pip-requirements.txt
 
 # Hack to ignore cache from here on
 ARG NOCACHE=0
 
+RUN pip install -e git+https://github.com/eawag-rdm/ckanext-spatial.git@eric_open#egg=ckanext-spatial && \
+    pip install -r https://raw.githubusercontent.com/eawag-rdm/ckanext-spatial/eric_open/pip-requirements.txt
 RUN pip install -e git+https://github.com/eawag-rdm/ckanext_eaw_schema.git@ericopen#egg=ckanext_eaw_schema
 RUN pip install -e git+https://github.com/eawag-rdm/ckanext-eaw_theme.git@ext2#egg=ckanext-eaw_theme
 RUN pip install -e git+https://github.com/eawag-rdm/ckanext-hierarchy_s.git@ext2#egg=ckanext-hierarchy_s && \
