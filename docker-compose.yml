@@ -54,7 +54,8 @@ services:
 
   redis:
     container_name: redis
-    image: redis:alpine
+    build:
+      context: redis/
     restart: always
 
   nginx:
